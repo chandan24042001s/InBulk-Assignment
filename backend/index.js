@@ -1,5 +1,5 @@
 
-
+require("dotenv").config();
 const express = require('express');
 const dbConnect=require("./config/database")
 const bodyParser = require('body-parser');
@@ -14,7 +14,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Routes
-app.use("api/v1",User);
+app.use("/api/v1",User);
 
 // MongoDB connection
 dbConnect();

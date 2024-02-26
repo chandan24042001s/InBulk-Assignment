@@ -9,17 +9,22 @@ const otpVerification = require('../helper/otpValidate')
 const twilio = require('twilio')
 const otpGenerator = require('otp-generator')
 
-const accountSid =process.env.ACCOUNTSID;
-const authToken =process.env.AUTHTOKEN;
+// const accountSid =process.env.ACCOUNTSID;
+// const authToken =process.env.AUTHTOKEN;
 
+const accountSid = "AC25569a1b07d7525d8fdfbd2a4f11fe6c";
+const authToken = "9680e0db12c1c2bacabeb200e2eee1a4";
+
+// const accountSid ="ACf8efe8c03343c31981f62c43b4574555";
+// const authToken ="37c769044fe1e5a86b66c277f7f2cbc0";
 
 const twilioClient = new twilio(accountSid, authToken);
 
 const signUp = async (req, res) => {
   try {
     // Create a new user
-    const { mobileNumber, name, email, photo } = req.body;
-    const user = new User({ mobileNumber, name, email, photo });
+    const { phoneNumber, name, email, photo } = req.body;
+    const user = new User({ phoneNumber, name, email, photo });
     await user.save();
     res.json({ 
         success: true,
@@ -50,7 +55,7 @@ const sendOtp = async (req, res) => {
         await twilioClient.messages.create({
             body: `Your OTP is ${otp}`,
             to: phoneNumber,
-            from: "+1 516 928 6930",
+            from: "+15169286930",
         })
 
         return res.status(200).json({
