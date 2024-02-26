@@ -1,11 +1,14 @@
-// routes/authRoutes.js
+
 
 const express = require('express');
 const router = express.Router();
-const User = require('../models/user');
-const { signUp, login } = require('../controllers/authController');
 
-router.post('/signup', signUp);
-router.post('/login', login);
+
+const userController = require('../controllers/userController')
+
+router.post('/signup', userController.signUp);
+
+router.post('/send-otp', userController.sendOtp)
+router.post('/verify-otp', userController.verifyOtp)
 
 module.exports = router;
