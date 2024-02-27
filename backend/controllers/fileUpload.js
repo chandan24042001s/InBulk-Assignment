@@ -47,7 +47,7 @@ function isFileTypeSupported(type, supportedTypes) {
         console.log(response);
 
         //db mey entry save karni hey
-        const fileData=await File.create({phoneNumber,name,email,imageUrl});
+        const fileData=await File.create({phoneNumber,name,email,imageUrl:response.secure_url});
 
         res.json({
             success:true,
@@ -65,3 +65,17 @@ function isFileTypeSupported(type, supportedTypes) {
     }
   }
 
+  exports.login = async (req, res) => {
+    try {
+      const { phoneNumber } = req.body;
+      // Validate user
+      const user = await File.findOne({ phoneNumber });
+      if (user) {
+        res.json({ success: true, message: 'Login successful', user });
+      } else {
+        res.status(404).json({ success: false, message: 'User not found' });
+      }
+    } catch (error) {
+      res.status(500).json({ success: false, message: error.message });
+    }
+  };
