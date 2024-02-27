@@ -2,7 +2,7 @@ const express=require("express");
 const app=express();
 
 require("dotenv").config();
-const PORT=process.env.PORT|| 5000;
+const PORT= 5000;
 
 app.use(express.json());
 const fileupload=require("express-fileupload");
