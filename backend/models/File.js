@@ -1,0 +1,25 @@
+const mongoose=require("mongoose");
+const fileSchema=new mongoose.Schema({
+    phoneNumber:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    name:{
+        type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true
+    },
+    imageUrl:{
+        type:String,
+    },
+  
+});
+
+
+
+const File=mongoose.model("File",fileSchema);
+module.exports=File;

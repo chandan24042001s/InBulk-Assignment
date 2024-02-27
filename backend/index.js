@@ -1,26 +1,25 @@
+const express=require("express");
+const app=express();
 
 require("dotenv").config();
-const express = require('express');
-const dbConnect=require("./config/database")
-const bodyParser = require('body-parser');
-const User=require("./routes/authRoutes")
-// const cors = require('cors');
-// const authRoutes = require('./routes/authRoutes');
-// const profileRoutes = require('./routes/profileRoutes');
+const PORT=process.env.PORT|| 5000;
 
-const app = express();
+app.use(express.json());
+const fileupload=require("express-fileupload");
+app.use(fileupload({
+    useTempFiles:true,
+    tempFileDir:'/tmp/'
+}));
 
-// Middleware
-app.use(bodyParser.json());
-
-// Routes
-app.use("/api/v1",User);
-
-// MongoDB connection
+const dbConnect=require("./config/database");
 dbConnect();
 
+const cloudinary=require("./config/cloudinary");
+cloudinary.cloudinaryConnect();
 
+const Upload=require("./routes/FileUpload");
+app.use("/api/v1/upload",Upload);
 
-// Start server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT,()=>{
+    console.log(`App is running at ${PORT}`);
+})
