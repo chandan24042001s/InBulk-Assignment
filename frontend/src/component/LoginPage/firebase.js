@@ -8,16 +8,16 @@ import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBHUTkdxgssqsNrzK5Y6tE3ga8zR32_5sY",
-  authDomain: "inbulk-777.firebaseapp.com",
-  projectId: "inbulk-777",
-  storageBucket: "inbulk-777.appspot.com",
-  messagingSenderId: "6946618316",
-  appId: "1:6946618316:web:5699e8410f3a70b693fb69",
-  measurementId: "G-SE3CKMLGDY"
+  apiKey: "AIzaSyA4OgtneaDMDJJxNa5OkKuRBFD3o62WoMo",
+  authDomain: "inbulk-7777.firebaseapp.com",
+  projectId: "inbulk-7777",
+  storageBucket: "inbulk-7777.appspot.com",
+  messagingSenderId: "331609129631",
+  appId: "1:331609129631:web:0175ec9ea6e396e5bc98aa",
+  measurementId: "G-WFWYGQN509"
 };
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 export const auth = getAuth(app);

@@ -1,5 +1,6 @@
 const express=require("express");
 const app=express();
+const cors=require("cors")
 
 require("dotenv").config();
 const PORT= 5000;
@@ -11,6 +12,14 @@ app.use(fileupload({
     tempFileDir:'/tmp/'
 }));
 
+app.use(express.urlencoded({extended:false}))
+app.use(
+    cors({
+        origin:["http://localhost:3000","http://localhost:1234"],
+        methods:["POST", "GET", "PUT", "DELETE"],
+        credentials:true,
+    })
+)
 const dbConnect=require("./config/database");
 dbConnect();
 

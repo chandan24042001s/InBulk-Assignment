@@ -71,7 +71,9 @@ function isFileTypeSupported(type, supportedTypes) {
       // Validate user
       const user = await File.findOne({ phoneNumber });
       if (user) {
-        res.json({ success: true, message: 'Login successful', user });
+        res.json({ success: true, 
+          message: 'Login successful', 
+          data:user });
       } else {
         res.status(404).json({ success: false, message: 'User not found' });
       }
