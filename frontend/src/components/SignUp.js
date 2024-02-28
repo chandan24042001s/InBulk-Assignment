@@ -48,10 +48,10 @@ const SignUp = () => {
       const data = await response.json();
       console.log(data);
       
-        setMsg(true);
+        
       
       if(data.success==true){
-        
+        setMsg(false);
         navigate('/login')
       }
       
