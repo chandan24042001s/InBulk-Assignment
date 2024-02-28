@@ -87,7 +87,7 @@ const SignUp = () => {
 
      
   </div> 
-  {msg && <div className='text-xl flex justify-center items-center gap-4'><h1>Processing...</h1><span className="loader-1"></span></div>}
+  {(msg && imageFile )&& <div className='text-xl flex justify-center items-center gap-4'><h1>Processing...</h1><span className="loader-1"></span></div>}
 </div>)
   )
 }
