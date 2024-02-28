@@ -15,7 +15,7 @@ app.use(fileupload({
 app.use(express.urlencoded({extended:false}))
 app.use(
     cors({
-        origin:["http://localhost:3000","http://localhost:1234"],
+        origin:["http://localhost:3000","http://localhost:1234","https://in-bulk-chandan-assignment.vercel.app/",],
         methods:["POST", "GET", "PUT", "DELETE"],
         credentials:true,
     })
