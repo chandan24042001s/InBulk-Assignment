@@ -5,18 +5,19 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [showProfile, setShowProfile]=useState(false)
-  
   const dispatch=useDispatch();
   const navigate=useNavigate();
   const store=useSelector(state=>state.user.User);
   const profileHandler=()=>{
     setShowProfile(!showProfile)
   }
- console.log(store);
+
   const logout=()=>{
     dispatch(removeUser());
     navigate("/login")
   }
+
+
   return (
     <>
      <div className="flex justify-end m-5">

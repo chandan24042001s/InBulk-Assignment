@@ -6,12 +6,7 @@ import { useDispatch } from 'react-redux';
 
 const SignUp = () => {
   const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, []);
+ 
 
   const [phoneNumber,setPhoneNumber]=useState("");
   const [name,setName]=useState("");
@@ -21,6 +16,15 @@ const SignUp = () => {
   const navigate=useNavigate();
   const dispatch=useDispatch();
 
+  //Rendering Loader
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  //Backend API call
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMsg(true);

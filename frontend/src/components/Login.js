@@ -7,17 +7,19 @@ const Login = () => {
   const [showOTP, setShowOTP] = useState(false);
   const [verify, setVerify] = useState("");
   const [OTP, setOTP] = useState("");
+  const [phoneNumber, setPhone] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  
+  //OTP Generator
   const OTPhandler = (e) => {
     e.preventDefault();
     const generatedOTP = Math.floor(Math.random() * 9000) + 1000;
     setOTP(generatedOTP);
     setShowOTP(true);
   };
-
-  const [phoneNumber, setPhone] = useState("");
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
+  
+  //Backend API Calling
   const handleLogin = async (e) => {
     e.preventDefault();
 
