@@ -29,7 +29,7 @@ const Home = () => {
     </button>
     </div>
       <div className="flex flex-col gap-5 mt-20 items-center h-[100vh]">
-        <div className="text-white bg-[#0766ff] text-3xl "><h1>Welcome {store.name} </h1></div>
+      <div className="text-white bg-[#0766ff] text-3xl px-4 py-2 rounded-xl tracking-wider "><h1>Welcome {store.name}</h1></div>
         <button
           onClick={profileHandler}
           type="submit"
@@ -37,7 +37,7 @@ const Home = () => {
         >
           View Your Profile
         </button>
-        {showProfile && (<div className=" flex flex-col justify-center items-center w-[25%] py-5 gap-4 font-medium text-white bg-black rounded-xl bg-opacity-50">
+        {showProfile && (<div className=" flex flex-col justify-center items-center  p-5 gap-4 font-medium text-white bg-black rounded-xl bg-opacity-50">
           <img
             className="user-img"
             src={require("../Images/chandan.jpeg")}

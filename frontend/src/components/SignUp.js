@@ -32,7 +32,7 @@ const SignUp = () => {
     formData.append('imageFile', imageFile);
 
     try {
-      const response = await fetch('http://localhost:5000/api/v1/upload/imageUpload', {
+      const response = await fetch('https://inbulk-assignment.onrender.com/api/v1/upload/imageUpload', {
         method: 'POST',
         body: formData,
       });
@@ -60,8 +60,8 @@ const SignUp = () => {
 
 
   return (
-    isLoading ? <Loader /> :   (<div className="container flex flex-col text-white gap-10 justify-center items-center">
-  <div class="signup mt-20 flex flex-col gap-2 justify-center  items-center bg-black text-white p-4 rounded-xl w-[20rem]">
+    isLoading ? <Loader /> :   (<div className="container flex flex-col text-white gap-10 justify-center h-[100vh] items-center">
+  <div class="signup  flex flex-col gap-2 justify-center  items-center bg-black text-white p-4 rounded-xl w-[20rem]">
       <h1 className='text-2xl font-semibold mb-5'>Sign Up</h1>
       <form onSubmit={handleSubmit} className='flex flex-col items-center gap-3'>
           <input className='w-[90%] px-4 py-2 border border-gray focus:outline-none rounded-xl text-black focus:border-teal-500 focus:border-2' type="text" placeholder="Full Name"

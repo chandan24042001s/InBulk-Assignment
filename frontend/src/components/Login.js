@@ -29,7 +29,7 @@ const Login = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/v1/upload/login",
+        "https://inbulk-assignment.onrender.com/api/v1/upload/login",
         {
           method: "POST",
           headers: {
@@ -65,14 +65,14 @@ const Login = () => {
 
   return (
     <>
-      <div className="container flex flex-col justify-center items-center">
+      <div className="container flex flex-col justify-center h-[100vh] items-center">
         {/* random number container*/}
         {showOTP && (
           <div className="bg-black text-white font-semibold p-4 animate-bounce w-[25%] rounded-xl">
             <h1>Your OTP is {OTP} </h1>
           </div>
         )}
-        <div className="login mt-10 flex flex-col justify-center gap-2 bg-black text-white p-4 rounded-xl w-[20rem]">
+        <div className="login  flex flex-col justify-center gap-2 bg-black text-white p-4 rounded-xl w-[20rem]">
           <h1 className="text-2xl font-semibold mb-5 text-center">Login</h1>
           <form
             onSubmit={handleLogin}
